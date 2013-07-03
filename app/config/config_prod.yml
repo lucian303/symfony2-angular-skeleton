@@ -1,6 +1,11 @@
 imports:
     - { resource: config.yml }
 
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: true
+
 #framework:
 #    validation:
 #        cache: apc
