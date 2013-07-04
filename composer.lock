@@ -3,8 +3,53 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e67df720e8a1a2e0e6df41d91d788e48",
+    "hash": "b919d385862714ae7282fc76a9898379",
     "packages": [
+        {
+            "name": "divi/ajax-login-bundle",
+            "version": "dev-master",
+            "target-dir": "Divi/AjaxLoginBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Divi/AjaxLoginBundle.git",
+                "reference": "d335bf45f254858927969c272258da3a8d86dc78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Divi/AjaxLoginBundle/zipball/d335bf45f254858927969c272258da3a8d86dc78",
+                "reference": "d335bf45f254858927969c272258da3a8d86dc78",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Divi\\AjaxLoginBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sylvain Lorinet",
+                    "email": "sylvain.lorinet@gmail.com"
+                }
+            ],
+            "description": "Ajax Form Login for Symfony 2 PHP Framework",
+            "homepage": "https://github.com/Divi/AjaxLoginBundle",
+            "keywords": [
+                "Authentication",
+                "ajax",
+                "form",
+                "login",
+                "symfony"
+            ],
+            "time": "2013-04-04 10:20:29"
+        },
         {
             "name": "doctrine/common",
             "version": "2.3.0",
@@ -1174,9 +1219,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "divi/ajax-login-bundle": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

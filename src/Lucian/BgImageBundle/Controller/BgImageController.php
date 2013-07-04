@@ -26,30 +26,19 @@ class BgImageController extends Controller
 	}
 
 	/**
-	 * @Route("/login", name="_login")
+	 * @Route("/login", name="login")
 	 * @Template()
 	 */
-	public function loginAction(Request $request)
+	public function loginAction()
 	{
-		if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-			$error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-		}
-		else {
-			$error = $request->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
-		}
-
-		return array(
-			'last_username' => $request->getSession()->get(SecurityContext::LAST_USERNAME),
-			'error' => $error,
-		);
+		return array();
 	}
 
 	/**
 	 * @Route("/login_check", name="_security_check")
 	 */
-	public function securityCheckAction()
+	public function securityCheckAction(Request $request)
 	{
-		// The security layer will intercept this request
 	}
 
 	/**
@@ -57,7 +46,14 @@ class BgImageController extends Controller
 	 */
 	public function logoutAction()
 	{
-		// The security layer will intercept this request
+	}
+
+	/**
+	 * @Route("/bgimage", name="_bgimage")
+	 */
+	public function bgImageAction()
+	{
+		return new Response("bgimage");
 	}
 
 }
