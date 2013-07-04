@@ -1,6 +1,27 @@
 (function($) {
-	var runApp = function() {
+	"use strict";
 
+	var runApp = function() {
+		var FileUploadView = Backbone.View.extend({
+			tagName: "div",
+
+			className: "app-content",
+
+			events: {
+				"click .upload": "upload"
+			},
+
+			initialize: function() {
+				this.render();
+			},
+
+			render: function() {
+				this.$el.html('<h2>hello</h2>');
+				return this;
+			}
+		});
+
+		var $bgImageUploadView = new FileUploadView({el: document.getElementById('app-content')});
 	};
 
 	// Process login and start app once we've logged in
