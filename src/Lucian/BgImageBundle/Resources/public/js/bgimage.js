@@ -1,15 +1,6 @@
 (function($) {
-	"use strict";
-
 	var runApp = function() {
-		steal('jquery/view', function() {
-//			jQuery.Model('BgImage', {
-//				update: 'POST /bgimage',
-//				get: 'GET /bgimage'
-//			}, {});
 
-			jQuery("#app-content").html('/bundles/lucianbgimage/js/bgimage.ejs', { message: 'hello world' });
-		});
 	};
 
 	// Process login and start app once we've logged in
