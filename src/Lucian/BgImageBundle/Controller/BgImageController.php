@@ -69,7 +69,7 @@ class BgImageController extends Controller
 	 * @Route("/bgimage", name="_post_bgimage")
 	 * @Method("POST")
 	 */
-	public function bgImageAction()
+	public function bgImagePostAction()
 	{
 		return new Response("bgimage post");
 	}
@@ -80,7 +80,7 @@ class BgImageController extends Controller
 	 * @Route("/bgimage", name="_get_bgimage")
 	 * @Method("GET")
 	 */
-	public function bgImageAction()
+	public function bgImageGetAction()
 	{
 		return new Response("bgimage get");
 	}
