@@ -1,28 +1,25 @@
 (function($) {
 	"use strict";
 
+	var renderView = function(id) {
+		var buttonId = id + '-submit';
+
+		$('#app-content').html(
+			Mustache.render('<input type="file" name="file" id="{{ id }}"/><input type="button" id="{{ buttonId }}" value="Upload Background"/>',
+				{
+					id: id,
+					buttonId: buttonId
+				})
+		);
+
+	}
+
 	var runApp = function() {
-		var FileUploadView = Backbone.View.extend({
-			tagName: "div",
+		renderView('file-upload');
 
-			className: "app-content",
-
-			events: {
-				"click .upload": "upload"
-			},
-
-			initialize: function() {
-				this.render();
-			},
-
-			render: function() {
-				this.$el.html('<h2>hello</h2>');
-				return this;
-			}
-		});
-
-		var $bgImageUploadView = new FileUploadView({el: document.getElementById('app-content')});
 	};
+
+
 
 	// Process login and start app once we've logged in
 	$(function() {
