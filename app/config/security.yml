@@ -7,9 +7,11 @@ security:
             memory:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    use1r:  { password: userpass1, roles: [ 'ROLE_USER' ] }
+                    user1:  { password: userpass1, roles: [ 'ROLE_USER' ] }
                     user2:  { password: userpass2, roles: [ 'ROLE_USER' ] }
                     user3:  { password: userpass3, roles: [ 'ROLE_USER' ] }
+                    user4:  { password: userpass4, roles: [ 'ROLE_USER' ] }
+                    user5:  { password: userpass5, roles: [ 'ROLE_USER' ] }
 
     firewalls:
         login:
