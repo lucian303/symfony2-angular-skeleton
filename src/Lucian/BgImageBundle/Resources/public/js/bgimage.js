@@ -1,57 +1,81 @@
 (function($) {
 	"use strict";
 
-	var renderView = function(id) {
-		var buttonId = id + '-submit';
+	var getInputs = function(el) {
+		var inputs = {};
 
+		$.each(el.find('input'), function(i, item) {
+			var $item = $(item);
+			inputs[$item.attr('name')] = $item.val();
+		});
+
+		return inputs;
+	}
+	var renderView = function(id) {
+		var formId = id + '-form';
+		var fileId = id + '-file';
 		$('#app-content').html(
-			Mustache.render('<input type="file" name="file" id="{{ id }}"/><input type="button" id="{{ buttonId }}" value="Upload Background"/>',
+			Mustache.render(
+				'<form enctype="multipart/form-data" id="{{ formId }}" action="/bgImage"><input type="file" name="bgImageFile" id="{{ fileId }}"/><input type="button" id="{{ id }}" value="Upload Background"/></form>',
 				{
 					id: id,
-					buttonId: buttonId
-				})
+					formId: formId,
+					fileId: fileId
+				}
+			)
 		);
-
-	}
-
-	var runApp = function() {
-		renderView('file-upload');
-
 	};
 
+	var setEvents = function(id) {
+		$('#' + id).click(function() {
+			var theform = $('#' + id + '-form');
+			var formData = new FormData(theform[0]);
 
-
-	// Process login and start app once we've logged in
-	$(function() {
-		$('#login-form').submit(function(e) {
-			e.preventDefault();
-
-			var $this = $(e.currentTarget),
-				inputs = {};
-
-			// Send all form's inputs
-			$.each($this.find('input'), function(i, item) {
-				var $item = $(item);
-				inputs[$item.attr('name')] = $item.val();
-			});
-
-			// Send form into ajax
 			$.ajax({
-				url: $this.attr('action'),
+				url: theform.attr('action'),
 				type: 'POST',
-				dataType: 'json',
-				data: inputs,
+				contentType: false,
+				cache: false,
+				data: formData,
+				processData: false,
 				success: function(data) {
-				   if (data.has_error) {
-				       alert('Error: ' + data.error);
-				   }
-				   else {
-				       runApp();
-				   }
+					console.log(data);
 				}
 			});
+		});
+	};
 
-			return false;
+	var runApp = function() {
+		var viewId = 'file-upload';
+		renderView(viewId);
+		setEvents(viewId);
+	};
+
+	// Process login and start app once we've logged in
+	$(document).ready(function() {
+		$(function() {
+			$('#login-form').submit(function(e) {
+				e.preventDefault();
+
+				var el = $(e.currentTarget);
+
+				$.ajax({
+					url: el.attr('action'),
+					type: 'POST',
+					dataType: 'json',
+					data: getInputs(el),
+					success: function(data) {
+					   if (data.has_error) {
+					       alert('Error: ' + data.error);
+					   }
+					   else {
+					       runApp();
+					   }
+					}
+				});
+
+				return false;
+			});
 		});
 	});
 }(jQuery));

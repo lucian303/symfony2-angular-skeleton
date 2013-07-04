@@ -3,6 +3,7 @@
 namespace Lucian\BgImageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -69,23 +70,24 @@ class BgImageController extends Controller
 	/**
 	 * Sets a background image
 	 *
-	 * @Route("/bgimage", name="_post_bgimage")
+	 * @Route("/bgImage", name="_post_bgimage")
 	 * @Method("POST")
 	 */
-	public function bgImagePostAction()
+	public function bgImagePostAction(Request $request)
 	{
-		return new Response("bgimage post");
+		$files = count($request->files->all());
+		return new JsonResponse(array('count' => $files));
 	}
 
 	/**
 	 * Gets the current background image, if any
 	 *
-	 * @Route("/bgimage", name="_get_bgimage")
+	 * @Route("/bgImage", name="_get_bgimage")
 	 * @Method("GET")
 	 */
 	public function bgImageGetAction()
 	{
-		return new Response("bgimage get");
+		return new JsonResponse(array('name' => 'get'));
 	}
 
 }
