@@ -50,7 +50,7 @@ class BgImageController extends Controller
 	/**
 	 * @Route("/login_check", name="_security_check")
 	 */
-	public function securityCheckAction(Request $request)
+	public function securityCheckAction()
 	{
 		// Intercepted by security service
 	}
@@ -66,12 +66,23 @@ class BgImageController extends Controller
 	/**
 	 * Sets a background image
 	 *
-	 * @Route("/bgimage", name="_bgimage")
+	 * @Route("/bgimage", name="_post_bgimage")
 	 * @Method("POST")
 	 */
 	public function bgImageAction()
 	{
-		return new Response("bgimage");
+		return new Response("bgimage post");
+	}
+
+	/**
+	 * Gets the current background image, if any
+	 *
+	 * @Route("/bgimage", name="_get_bgimage")
+	 * @Method("GET")
+	 */
+	public function bgImageAction()
+	{
+		return new Response("bgimage get");
 	}
 
 }
