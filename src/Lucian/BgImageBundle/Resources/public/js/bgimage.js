@@ -1,8 +1,12 @@
 (function($) {
-	var runApp = function() {
-//		$.Model('BgImage', {
-//			update: 'POST /bgimage'
-//		}, {});
+	"use strict";
+
+	var runApp = function($) {
+		steal('jquery/model', function() {
+			jQuery.Model('BgImage', {
+				update: 'POST /bgimage'
+			}, {});
+		});
 	};
 
 	// Process login and start app once we've logged in
@@ -33,7 +37,7 @@
 					       else {
 						       // Insert your success process
 //						       alert('Welcome ' + data.username + ' !');
-						       runApp();
+						       runApp($);
 					       }
 				       }
 			       });
