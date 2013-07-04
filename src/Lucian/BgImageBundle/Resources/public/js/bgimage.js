@@ -10,13 +10,14 @@
 		});
 
 		return inputs;
-	}
+	};
+
 	var renderView = function(id) {
 		var formId = id + '-form';
 		var fileId = id + '-file';
 		$('#app-content').html(
 			Mustache.render(
-				'<form enctype="multipart/form-data" id="{{ formId }}" action="/bgImage"><input type="file" name="bgImageFile" id="{{ fileId }}"/><input type="button" id="{{ id }}" value="Upload Background"/></form>',
+				'<form enctype="multipart/form-data" id="{{ formId }}" action="/bgImage" method="POST"><input type="file" name="bgImageFile" id="{{ fileId }}"/><input type="button" id="{{ id }}" value="Upload Background"/></form>',
 				{
 					id: id,
 					formId: formId,
@@ -36,10 +37,13 @@
 				type: 'POST',
 				contentType: false,
 				cache: false,
-				data: formData,
 				processData: false,
-				success: function(data) {
-					console.log(data);
+				data: formData,
+				success: function(model) {
+					console.log(model);
+				},
+				error: function() {
+					alert('There was an error uploading the file.');
 				}
 			});
 		});
