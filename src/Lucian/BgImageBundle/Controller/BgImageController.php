@@ -15,10 +15,11 @@ class BgImageController extends Controller
 	/**
 	 * @Route("/", name="_index")
 	 * @Method("GET")
+	 * @Template();
 	 */
 	public function indexAction()
 	{
-//		return $this->render('LucianBgImageBundle:Default:index.html.twig', array('name' => 'world'));
+		return array('name' => 'world');
 	}
 
 	/**
