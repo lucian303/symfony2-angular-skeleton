@@ -18,15 +18,15 @@ class BgImageController extends Controller
 	/**
 	 * @Route("/", name="_index")
 	 * @Method("GET")
-	 * @Template();
+	 * @Template()
 	 */
 	public function indexAction()
 	{
-		return array('name' => 'world');
+		return array();
 	}
 
 	/**
-	 * @Route("/login", name="login")
+	 * @Route("/login", name="_login")
 	 * @Template()
 	 */
 	public function loginAction()

@@ -21,7 +21,10 @@ security:
 
         secured_area:
             pattern:    ^/
-            ajax_form_login: ~
+            ajax_form_login:
+                default_target_path: /
+                always_use_default_target_path: true
+                use_forward: true
 
     access_control:
         - { path: ^/, roles: ROLE_USER }
