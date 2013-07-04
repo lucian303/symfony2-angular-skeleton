@@ -64,7 +64,10 @@ class BgImageController extends Controller
 	}
 
 	/**
+	 * Sets a background image
+	 *
 	 * @Route("/bgimage", name="_bgimage")
+	 * @Method("POST")
 	 */
 	public function bgImageAction()
 	{

@@ -1,4 +1,11 @@
 (function($) {
+	var runApp = function() {
+//		$.Model('BgImage', {
+//			update: 'POST /bgimage'
+//		}, {});
+	};
+
+	// Process login and start app once we've logged in
 	$(function() {
 		$('#login-form').submit(function(e) {
 			e.preventDefault();
@@ -25,8 +32,8 @@
 					       }
 					       else {
 						       // Insert your success process
-						       alert('Welcome ' + data.username + ' !');
-//							window.location = data.target_path;
+//						       alert('Welcome ' + data.username + ' !');
+						       runApp();
 					       }
 				       }
 			       });
@@ -34,14 +41,4 @@
 			return false;
 		});
 	});
-
-	var runApp = function() {
-		$.Model('Todo',{
-		  findAll: 'GET /todos.json',
-		  findOne: 'GET /todos/{id}.json',
-		  create:  'POST /todos.json',
-		  update:  'PUT /todos/{id}.json',
-		  destroy: 'DELETE /todos/{id}.json'
-		},{});
-	}
 }(jQuery));
