@@ -1,4 +1,4 @@
-{% extends 'AcmeDemoBundle::layout.html.twig' %}
+{% extends 'LucianBgImageBundle::layout.html.twig' %}
 
 {% block content %}
     <h1 class="title">Login</h1>
@@ -11,7 +11,7 @@
         <div class="error">{{ error.message }}</div>
     {% endif %}
 
-    <form action="{{ path("_security_check") }}" method="post" id="login">
+    <form id="login-form" action="{{ path("_security_check") }}" method="post" id="login">
         <div>
             <label for="username">Username</label>
             <input type="text" id="username" name="_username" value="{{ last_username }}" />
@@ -30,6 +30,49 @@
             </span>
         </button>
     </form>
-{% endblock %}
 
-{% set code = code(_self) %}
+	<script type="text/javascript">
+		// Check if jQuery is loaded
+		if (typeof jQuery != 'function') {
+			document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"><\/script>');
+		}
+	</script>
+	<script type="text/javascript">
+		$(function ()
+		{
+			$('#login-form').submit(function (e) {
+				e.preventDefault();
+
+				var $this = $(e.currentTarget)
+					inputs = {};
+
+				// Send all form's inputs
+				$.each($this.find('input'), function (i, item) {
+					var $item = $(item);
+					inputs[$item.attr('name')] = $item.val();
+				});
+
+				// Send form into ajax
+				$.ajax({
+					url: $this.attr('action'),
+					type: 'POST',
+					dataType: 'json',
+					data: inputs,
+					success: function (data) {
+						if (data.has_error) {
+							// Insert your error process
+							alert('Error: ' + data.error);
+						}
+						else {
+							// Insert your success process
+							alert('Welcome ' + data.username + ' !');
+							window.location = data.target_path;
+						}
+					}
+				});
+
+				return false;
+			});
+		});
+	</script>
+{% endblock %}

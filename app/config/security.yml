@@ -26,7 +26,6 @@ security:
             anonymous: ~
             ajax_form_login:
                 login_path:  /login
-                check_path:  /login_check
 
     access_control:
         - { path: ^/bgimage, roles: ROLE_USER }
