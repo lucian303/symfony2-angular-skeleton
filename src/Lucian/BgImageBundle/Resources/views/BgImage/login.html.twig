@@ -1,31 +1,33 @@
 {% extends 'LucianBgImageBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1 class="title">Login</h1>
+	<div id="app-content">
+		<h1 class="title">Login</h1>
 
-    <p>
-        Choose between two default users: <em>user1/userpass1, etc.</em>
-    </p>
+		<p>
+			Choose between two default users: <em>user1/userpass1, etc.</em>
+		</p>
 
-    <form id="login-form" action="{{ path("_security_check") }}" method="post" id="login">
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="_username" />
-        </div>
+		<form id="login-form" action="{{ path("_security_check") }}" method="post" id="login">
+			<div>
+				<label for="username">Username</label>
+				<input type="text" id="username" name="_username"/>
+			</div>
 
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="_password" />
-        </div>
+			<div>
+				<label for="password">Password</label>
+				<input type="password" id="password" name="_password"/>
+			</div>
 
-        <button type="submit" class="sf-button">
+			<button type="submit" class="sf-button">
             <span class="border-l">
                 <span class="border-r">
                     <span class="btn-bg">Login</span>
                 </span>
             </span>
-        </button>
-    </form>
+			</button>
+		</form>
+	</div>
 
 	<script type="text/javascript" src="{{ asset('assets/js/jquery-1.10.1.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('assets/javascriptmvc-3.2.4/steal/steal.js') }}"></script>

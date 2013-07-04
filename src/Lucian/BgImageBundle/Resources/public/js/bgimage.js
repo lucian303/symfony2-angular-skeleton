@@ -1,11 +1,14 @@
 (function($) {
 	"use strict";
 
-	var runApp = function($) {
-		steal('jquery/model', function() {
-			jQuery.Model('BgImage', {
-				update: 'POST /bgimage'
-			}, {});
+	var runApp = function() {
+		steal('jquery/model', 'jquery/view', 'jquery/controller', function() {
+//			jQuery.Model('BgImage', {
+//				update: 'POST /bgimage',
+//				get: 'GET /bgimage'
+//			}, {});
+
+			jQuery("#app-content").html('/bundles/lucianbgimage/js/bgimage.ejs', { message: 'hello world' });
 		});
 	};
 
