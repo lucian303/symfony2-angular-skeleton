@@ -2,7 +2,7 @@
 	"use strict";
 
 	var runApp = function() {
-		steal('jquery/model', 'jquery/view', 'jquery/controller', function() {
+		steal('jquery/view', function() {
 //			jQuery.Model('BgImage', {
 //				update: 'POST /bgimage',
 //				get: 'GET /bgimage'
@@ -37,7 +37,7 @@
 				       alert('Error: ' + data.error);
 				   }
 				   else {
-				       runApp($);
+				       runApp();
 				   }
 				}
 			});

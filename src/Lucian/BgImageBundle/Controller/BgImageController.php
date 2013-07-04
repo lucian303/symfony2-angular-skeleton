@@ -29,16 +29,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class BgImageController extends Controller
 {
 	/**
+	 * Forward to login/main app page
+	 *
 	 * @Route("/", name="_index")
 	 * @Method("GET")
-	 * @Template()
 	 */
 	public function indexAction()
 	{
-		return array();
+		return $this->forward('LucianBgImageBundle:BgImage:login');
 	}
 
 	/**
+	 * Login / main app page
+	 *
 	 * @Route("/login", name="_login")
 	 * @Template()
 	 */
