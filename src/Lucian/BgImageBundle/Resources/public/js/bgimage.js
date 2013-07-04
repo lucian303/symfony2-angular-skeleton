@@ -25,22 +25,19 @@
 
 			// Send form into ajax
 			$.ajax({
-				       url: $this.attr('action'),
-				       type: 'POST',
-				       dataType: 'json',
-				       data: inputs,
-				       success: function(data) {
-					       if (data.has_error) {
-						       // Insert your error process
-						       alert('Error: ' + data.error);
-					       }
-					       else {
-						       // Insert your success process
-//						       alert('Welcome ' + data.username + ' !');
-						       runApp($);
-					       }
-				       }
-			       });
+				url: $this.attr('action'),
+				type: 'POST',
+				dataType: 'json',
+				data: inputs,
+				success: function(data) {
+				   if (data.has_error) {
+				       alert('Error: ' + data.error);
+				   }
+				   else {
+				       runApp($);
+				   }
+				}
+			});
 
 			return false;
 		});
