@@ -41,7 +41,7 @@
 				data: formData,
 				success: function(model) {
 					if (model.success) {
-						$('body').css('background-image', "url('/bgImage')");
+						$('body').css('background-image', "url('/bgImage?" + Math.random() + "')");
 					}
 				},
 				error: function() {
