@@ -12,12 +12,50 @@
 		return inputs;
 	};
 
+	var renderView = function(id) {
+		var formId = id + '-form';
+		var fileId = id + '-file';
+		$('#app-content').html(
+			Mustache.render(
+				'<form enctype="multipart/form-data" id="{{ formId }}" action="/bgImage" method="POST"><input type="file" name="bgImageFile" id="{{ fileId }}"/><input type="button" id="{{ id }}" value="Upload Background"/></form>',
+				{
+					id: id,
+					formId: formId,
+					fileId: fileId
+				}
+			)
+		);
+	};
+
+	var setEvents = function(id) {
+		$('#' + id).click(function() {
+			var theform = $('#' + id + '-form');
+			var formData = new FormData(theform[0]);
+
+			$.ajax({
+				url: theform.attr('action'),
+				type: 'POST',
+				contentType: false,
+				cache: false,
+				processData: false,
+				data: formData,
+				success: function(model) {
+					console.log(model);
+				},
+				error: function() {
+					alert('There was an error uploading the file.');
+				}
+			});
+		});
+	};
+
 	var runApp = function() {
-		// Run single page app from here
+		var viewId = 'file-upload';
+		renderView(viewId);
+		setEvents(viewId);
 	};
 
 	// Process login and start app once we've logged in
-	// This can be rewritten in your mvc fw of choice
 	$(document).ready(function() {
 		$(function() {
 			$('#login-form').submit(function(e) {
