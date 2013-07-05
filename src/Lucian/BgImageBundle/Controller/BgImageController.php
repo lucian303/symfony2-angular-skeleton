@@ -108,6 +108,8 @@ class BgImageController extends Controller
 				$response = new Response($imageData);
 				$response->headers->set('Content-Type', $_SESSION['bgImageMimeType']);
 				$response->expire();
+				$response->mustRevalidate();
+				$response->setPrivate();
 			}
 			else {
 				$response = new JsonResponse(array('success' => false), 400);
