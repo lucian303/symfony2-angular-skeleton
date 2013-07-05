@@ -75,8 +75,21 @@ class BgImageController extends Controller
 	 */
 	public function bgImagePostAction(Request $request)
 	{
-		$files = count($request->files->all());
-		return new JsonResponse(array('count' => $files));
+		try {
+			/** @var $bgImage \Symfony\Component\HttpFoundation\File\UploadedFile */
+			$bgImage = $request->files->get('bgImageFile');
+			$newName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'bgImage.' . $bgImage->getClientOriginalExtension();
+			$bgImage->move(sys_get_temp_dir(), 'bgImage.' . $bgImage->getClientOriginalExtension());
+
+			$_SESSION['bgImage'] = $newName; // use simple php session
+			$_SESSION['bgImageMimeType'] = $bgImage->getClientMimeType();
+
+			$response = new JsonResponse(array('success' => true));
+		} catch (\Exception $e) {
+			$response = new JsonResponse(array('success' => false));
+		}
+
+		return $response;
 	}
 
 	/**
@@ -87,7 +100,22 @@ class BgImageController extends Controller
 	 */
 	public function bgImageGetAction()
 	{
-		return new JsonResponse(array('name' => 'get'));
-	}
+		if (isset($_SESSION['bgImage']) && isset($_SESSION['bgImageMimeType'])) {
+			$fileName = $_SESSION['bgImage'];
+			$imageData = file_get_contents($fileName);
 
+			if ($imageData) {
+				$response = new Response($imageData);
+				$response->headers->set('Content-Type', $_SESSION['bgImageMimeType']);
+			}
+			else {
+				$response = new JsonResponse(array('success' => false));
+			}
+		}
+		else {
+			$response = new JsonResponse(array('success' => false));
+		}
+
+		return $response;
+	}
 }
