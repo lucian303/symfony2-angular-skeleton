@@ -78,15 +78,15 @@ class BgImageController extends Controller
 		try {
 			/** @var $bgImage \Symfony\Component\HttpFoundation\File\UploadedFile */
 			$bgImage = $request->files->get('bgImageFile');
-			$newName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'bgImage.' . $bgImage->getClientOriginalExtension();
-			$bgImage->move(sys_get_temp_dir(), 'bgImage.' . $bgImage->getClientOriginalExtension());
+			$newName = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'bgImage';
+			$bgImage->move(sys_get_temp_dir(), 'bgImage');
 
 			$_SESSION['bgImage'] = $newName; // use simple php session
 			$_SESSION['bgImageMimeType'] = $bgImage->getClientMimeType();
 
 			$response = new JsonResponse(array('success' => true));
 		} catch (\Exception $e) {
-			$response = new JsonResponse(array('success' => false));
+			$response = new JsonResponse(array('success' => false), 400);
 		}
 
 		return $response;
@@ -107,13 +107,14 @@ class BgImageController extends Controller
 			if ($imageData) {
 				$response = new Response($imageData);
 				$response->headers->set('Content-Type', $_SESSION['bgImageMimeType']);
+				$response->expire();
 			}
 			else {
-				$response = new JsonResponse(array('success' => false));
+				$response = new JsonResponse(array('success' => false), 400);
 			}
 		}
 		else {
-			$response = new JsonResponse(array('success' => false));
+			$response = new JsonResponse(array('success' => false), 400);
 		}
 
 		return $response;

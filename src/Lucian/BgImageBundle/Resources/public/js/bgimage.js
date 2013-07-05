@@ -29,8 +29,8 @@
 
 	var setEvents = function(id) {
 		$('#' + id).click(function() {
-			var theform = $('#' + id + '-form');
-			var formData = new FormData(theform[0]);
+			var theform = $('#' + id + '-form'),
+				formData = new FormData(theform[0]);
 
 			$.ajax({
 				url: theform.attr('action'),
@@ -40,7 +40,9 @@
 				processData: false,
 				data: formData,
 				success: function(model) {
-					console.log(model);
+					if (model.success) {
+						$('body').css('background-image', "url('/bgImage')");
+					}
 				},
 				error: function() {
 					alert('There was an error uploading the file.');
