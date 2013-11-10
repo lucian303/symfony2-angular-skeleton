@@ -26,18 +26,9 @@
 				</div>
 			{% endfor %}
 
-			{% block content_header %}
-				<ul id="menu">
-					{% block content_header_more %}
-					{% endblock %}
-				</ul>
-
-				<div style="clear: both"></div>
-			{% endblock %}
-
-			<div class="block">
-				{% block content %}{% endblock %}
-			</div>
+			{% block content_header %}{% endblock %}
+			{% block content %}{% endblock %}
+			{% block content_footer %}{% endblock %}
 		{% endblock %}
 	</div>
 </div>
