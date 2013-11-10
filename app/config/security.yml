@@ -19,6 +19,21 @@ security:
             security: false
             anonymous: ~
 
+        debug:
+            pattern: ^/_wdt/*
+            security: false
+            anonymous: ~
+
+        profiler:
+            pattern: ^/_profiler/*
+            security: false
+            anonymous: ~
+
+        configurator:
+            pattern: ^/_configurator/*
+            security: false
+            anonymous: ~
+
         secured_area:
             pattern:    ^/
             ajax_form_login:
