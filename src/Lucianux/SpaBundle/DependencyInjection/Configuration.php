@@ -1,6 +1,6 @@
 <?php
 
-namespace HotelMylo\SpaBundle\DependencyInjection;
+namespace Lucianux\SpaBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('hotelmylo_spa');
+        $rootNode = $treeBuilder->root('lucianux_spa');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

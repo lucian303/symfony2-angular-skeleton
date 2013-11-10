@@ -1,6 +1,6 @@
 <?php
 
-namespace HotelMylo\SpaBundle\Controller;
+namespace Lucianux\SpaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,7 +19,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
  *
  * Single page application controller. Sends out our SPA html layout and handles login
  * @todo Move login / security to a different bundle?
- * @package HotelMylo\SpaBundle\Controller
+ * @package Lucianux\SpaBundle\Controller
  */
 class SpaController extends Controller
 {
@@ -28,16 +28,18 @@ class SpaController extends Controller
 	 *
 	 * @Route("/", name="_index")
 	 * @Method("GET")
+	 * @Template()
 	 */
 	public function indexAction()
 	{
-		return $this->forward('HotelMyloSpaBundle:Spa:login');
+		return array();
 	}
 
 	/**
-	 * Login / main app page
+	 * Login page
 	 *
 	 * @Route("/login", name="_login")
+	 * @Method("GET")
 	 * @Template()
 	 */
 	public function loginAction()

@@ -14,6 +14,11 @@ security:
                     user5:  { password: userpass5, roles: [ 'ROLE_USER' ] }
 
     firewalls:
+        index:
+            pattern: ^/$
+            security: false
+            anonymous: ~
+
         login:
             pattern: ^/login$
             security: false
@@ -35,9 +40,9 @@ security:
             anonymous: ~
 
         secured_area:
-            pattern:    ^/
+            pattern:    ^/*
             ajax_form_login:
-                default_target_path: /
+                default_target_path: /api/v1/loginSuccess
                 always_use_default_target_path: true
                 use_forward: true
 

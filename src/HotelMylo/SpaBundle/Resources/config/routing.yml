@@ -1,3 +1,0 @@
-lucian_bgimage:
-    resource: "@HotelMyloSpaBundle/Controller/"
-    type:     annotation
