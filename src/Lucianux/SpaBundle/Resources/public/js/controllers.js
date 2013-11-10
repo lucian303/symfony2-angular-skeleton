@@ -45,7 +45,6 @@ myloControllers.controller('LoginController', ['$scope', '$http',
 				       alert('Error: ' + data.error);
 				   }
 				   else {
-				       console.log(data);
 					   alert('Welcome ' + data.username);
 				   }
 				}

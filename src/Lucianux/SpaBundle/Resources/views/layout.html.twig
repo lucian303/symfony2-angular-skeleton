@@ -27,18 +27,27 @@
 <body>
 
 <div class="view-container">
-	<div ng-view class="view-frame">
+	<div class="view-header">
+		{% block view_header %}{% endblock %}
+	</div>
+
+	{# Div for SPA app #}
+	<div ng-view class="view-frame"></div>
+
+	{# This is for regular html coming from the backend, if any #}
+	<div class="view-content">
 		{% block body %}
 			{% for flashMessage in app.session.flashbag.get('notice') %}
 				<div class="flash-message">
 					<em>Notice</em>: {{ flashMessage }}
 				</div>
 			{% endfor %}
-
-			{% block content_header %}{% endblock %}
 			{% block content %}{% endblock %}
-			{% block content_footer %}{% endblock %}
 		{% endblock %}
+	</div>
+
+	<div class="view-footer">
+		{% block view_footer %}{% endblock %}
 	</div>
 </div>
 
