@@ -17,16 +17,32 @@ function LoginController($scope, $http) {
 
 		$event.preventDefault();
 
-		$http({
-		    method: 'POST',
-		    url: loginForm.attr('action'),
-		    data: getInputs(loginForm),
-		    headers: {'Content-Type': 'application/json'}
-		}).success(function (data, status, headers, config) {
-			console.log(status, headers, config);
-			alert('yes!!!');
-		}).error(function(data, status, headers, config) {
-			alert('error');
-        });
+		$.ajax({
+			url: loginForm.attr('action'),
+			type: 'POST',
+			dataType: 'json',
+			data: getInputs(loginForm),
+			success: function(data) {
+			   if (data.has_error) {
+			       alert('Error: ' + data.error);
+			   }
+			   else {
+			       console.log(data);
+				   alert('Welcome ' + data.username);
+			   }
+			}
+		});
+
+//		$http({
+//		    method: 'POST',
+//		    url: loginForm.attr('action'),
+//		    data: getInputs(loginForm),
+//		    headers: {'Content-Type': 'application/json'}
+//		}).success(function (data, status, headers, config) {
+//			console.log(status, headers, config);
+//			alert('yes!!!');
+//		}).error(function(data, status, headers, config) {
+//			alert('error');
+//        });
 	};
 }
