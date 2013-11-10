@@ -5,7 +5,13 @@
 /* global angular */
 var myloControllers = angular.module('myloControllers', []);
 
-myloControllers.controller('LoginController', ['$scope', '$http',
+myloControllers.controller('IndexController', ['$scope',
+	function($scope) {
+
+	}
+]);
+
+myloControllers.controller('LoginController', ['$scope',
 	function($scope) {
 		/**
 		 * Grabs a form's inputs into an object
