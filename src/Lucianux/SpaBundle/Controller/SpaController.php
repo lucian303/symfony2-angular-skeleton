@@ -48,7 +48,7 @@ class SpaController extends Controller
 	}
 
 	/**
-	 * @Route("/login_check", name="_security_check")
+	 * @Route("/api/v1/login_check", name="_security_check")
 	 */
 	public function securityCheckAction()
 	{

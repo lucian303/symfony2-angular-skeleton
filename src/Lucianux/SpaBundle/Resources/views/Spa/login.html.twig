@@ -8,7 +8,7 @@
 			Choose between default users 1 - 5: <em>user1/userpass1, user2/userpass2, etc.</em>
 		</p>
 
-		<form id="login-form" action="{{ path("_security_check") }}" method="post" ng-submit="login()">
+		<form id="login-form" action="{{ path("_security_check") }}" method="post" ng-submit="login($event)">
 			<div>
 				<label for="username">Username</label>
 				<input type="text" id="username" name="_username"/>

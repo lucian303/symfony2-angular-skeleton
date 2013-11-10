@@ -40,9 +40,10 @@ security:
             anonymous: ~
 
         secured_area:
-            pattern:    ^/*
+            pattern:    ^/api/*
             ajax_form_login:
-                default_target_path: /api/v1/loginSuccess
+                check_path: /api/v1/login_check
+                default_target_path: /api/v1/login_success
                 always_use_default_target_path: true
                 use_forward: true
 
