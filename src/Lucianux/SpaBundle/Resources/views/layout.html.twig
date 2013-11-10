@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myloApp">
 
 <head>
 	<meta charset="utf-8">
@@ -7,15 +7,19 @@
 	<title>Hotel Mylo</title>
 
 	<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}"/>
-	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap-theme.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('bundles/lucianuxspa/css/spa.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap-theme.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('bundles/lucianuxspa/css/app.css') }}"/>
 
-	<script type="text/javascript" src="{{ asset('assets/js/jquery/jquery-2.0.3.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('assets/js/bootstrap/bootstrap.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('assets/js/angular/angular.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/js/jquery/jquery-2.0.3.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/js/bootstrap/bootstrap.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/js/angular/angular.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/js/angular/angular-route.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/js/angular/angular-animate.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/js/angular/angular-resource.js') }}"></script>
 
-	<script type="text/javascript" src="{{ asset('bundles/lucianuxspa/js/spa.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/lucianuxspa/js/app.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/lucianuxspa/js/controllers.js') }}"></script>
 
 	{% block head %}{% endblock %}
 </head>
