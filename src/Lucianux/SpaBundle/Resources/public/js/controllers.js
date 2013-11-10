@@ -2,11 +2,14 @@
 
 /* Controllers */
 
+/* global angular */
 var myloControllers = angular.module('myloControllers', []);
 
 myloControllers.controller('LoginController', ['$scope', '$http',
-	function($scope, $http) {
+	function($scope) {
 		/**
+		 * Grabs a form's inputs into an object
+		 *
 		 * @private
 		 * @param el formInput
 		 * @returns string output
@@ -22,6 +25,11 @@ myloControllers.controller('LoginController', ['$scope', '$http',
 			return inputs;
 		};
 
+		/**
+		 * Login action, triggered by a form submit event (usually)
+		 *
+		 * @param $event
+		 */
 		$scope.login = function($event) {
 			var loginForm = $($event.target);
 
@@ -46,14 +54,3 @@ myloControllers.controller('LoginController', ['$scope', '$http',
 	}
 ]);
 
-//		$http({
-//		    method: 'POST',
-//		    url: loginForm.attr('action'),
-//		    data: getInputs(loginForm),
-//		    headers: {'Content-Type': 'application/json'}
-//		}).success(function (data, status, headers, config) {
-//			console.log(status, headers, config);
-//			alert('yes!!!');
-//		}).error(function(data, status, headers, config) {
-//			alert('error');
-//        });

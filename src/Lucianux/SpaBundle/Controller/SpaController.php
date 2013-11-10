@@ -40,7 +40,6 @@ class SpaController extends Controller
 	 *
 	 * @Route("/login", name="_login")
 	 * @Method("GET")
-	 * @Template()
 	 */
 	public function loginAction()
 	{

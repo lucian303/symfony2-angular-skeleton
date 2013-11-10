@@ -20,7 +20,7 @@ security:
             anonymous: ~
 
         login:
-            pattern: ^/login$
+            pattern: ^/login_form$
             security: false
             anonymous: ~
 

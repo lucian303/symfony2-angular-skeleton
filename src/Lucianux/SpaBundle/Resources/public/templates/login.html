@@ -1,0 +1,27 @@
+<div ng-controller="LoginController">
+	<h1 class="title">Login</h1>
+
+	<p>
+		Choose between default users 1 - 5: <em>user1/userpass1, user2/userpass2, etc.</em>
+	</p>
+
+	<form id="login-form" action="/api/v1/login_check" method="post" ng-submit="login($event)">
+		<div>
+			<label for="username">Username</label>
+			<input type="text" id="username" name="_username"/>
+		</div>
+
+		<div>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="_password"/>
+		</div>
+
+		<button type="submit">
+           <span>
+               <span>
+                   <span>Login</span>
+               </span>
+           </span>
+		</button>
+	</form>
+</div>
