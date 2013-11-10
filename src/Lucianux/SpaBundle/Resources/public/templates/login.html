@@ -1,0 +1,28 @@
+<div id="login-widget">
+	<h1 class="title">Login</h1>
+
+	<p>
+		Choose between default users 1 - 5: <em>user1/userpass1, user2/userpass2, etc.</em>
+		Please upload a jpg or png or it won't work.
+	</p>
+
+	<form id="login-form" action="/login_check" method="post">
+		<div>
+			<label for="username">Username</label>
+			<input type="text" id="username" name="_username"/>
+		</div>
+
+		<div>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="_password"/>
+		</div>
+
+		<button type="submit">
+           <span>
+               <span>
+                   <span>Login</span>
+               </span>
+           </span>
+		</button>
+	</form>
+</div>
