@@ -1,42 +1,46 @@
-{% extends "TwigBundle::layout.html.twig" %}
+<!doctype html>
+<html lang="en" ng-app="hotelMyloApp">
+<head>
+	<meta charset="utf-8">
+	{% block title 'Hotel Mylo' %}
 
-{% block head %}
-    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-    <link rel="stylesheet" href="{{ asset('bundles/lucianbgimage/css/bgimage.css') }}" />
+	{% block head %}
+		<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}"/>
+		<link rel="stylesheet" href="{{ asset('bundles/lucianbgimage/css/bgimage.css') }}"/>
 
-	<script type="text/javascript" src="{{ asset('assets/js/jquery/jquery-2.0.3.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('assets/js/bootstrap/bootstrap.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('assets/js/angular/angular.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/js/jquery/jquery-2.0.3.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/js/bootstrap/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/js/angular/angular.min.js') }}"></script>
 
-	<script type="text/javascript" src="{{ asset('bundles/lucianbgimage/js/bgimage.js') }}"></script>
-{% endblock %}
+		<script type="text/javascript" src="{{ asset('bundles/lucianbgimage/js/app.js') }}"></script>
+	{% endblock %}
+</head>
 
-{% block title 'Background Uploader' %}
+<body>
+<div class="view-container">
+	<div ng-view class="view-frame">
+		{% block body %}
+			{% for flashMessage in app.session.flashbag.get('notice') %}
+				<div class="flash-message">
+					<em>Notice</em>: {{ flashMessage }}
+				</div>
+			{% endfor %}
 
-{% block body %}
-    {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="flash-message">
-            <em>Notice</em>: {{ flashMessage }}
-        </div>
-    {% endfor %}
+			{% block content_header %}
+				<ul id="menu">
+					{% block content_header_more %}
+					{% endblock %}
+				</ul>
 
-    {% block content_header %}
-        <ul id="menu">
-            {% block content_header_more %}
-            {% endblock %}
-        </ul>
+				<div style="clear: both"></div>
+			{% endblock %}
 
-        <div style="clear: both"></div>
-    {% endblock %}
+			<div class="block">
+				{% block content %}{% endblock %}
+			</div>
+		{% endblock %}
+	</div>
+</div>
 
-    <div class="block">
-        {% block content %}{% endblock %}
-    </div>
-
-    {% if code is defined %}
-        <h2>Code behind this page</h2>
-        <div class="block">
-            <div class="symfony-content">{{ code|raw }}</div>
-        </div>
-    {% endif %}
-{% endblock %}
+</body>
+</html>
