@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Divi\AjaxLoginBundle\DiviAjaxLoginBundle(),
-            new Lucian\BgImageBundle\LucianBgImageBundle(),
+            new HotelMylo\SpaBundle\HotelMyloSpaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

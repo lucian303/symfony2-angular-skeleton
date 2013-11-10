@@ -1,4 +1,4 @@
 lucian_bg_image:
-    resource: "@LucianBgImageBundle/Resources/config/routing.yml"
+    resource: "@HotelMyloSpaBundle/Resources/config/routing.yml"
     prefix:   /
 
