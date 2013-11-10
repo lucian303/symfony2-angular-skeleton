@@ -1,11 +1,15 @@
 <!doctype html>
 <html lang="en" ng-app="HotelMyloApp">
+
 <head>
 	<meta charset="utf-8">
-	{% block title 'Hotel Mylo' %}
+
+	<title>Hotel Mylo</title>
 
 	{% block head %}
 		<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}"/>
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap.min.css') }}"/>
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap-theme.min.css') }}"/>
 		<link rel="stylesheet" href="{{ asset('bundles/lucianuxspa/css/app.css') }}"/>
 
 		<script type="text/javascript" src="{{ asset('assets/js/jquery/jquery-2.0.3.min.js') }}"></script>
