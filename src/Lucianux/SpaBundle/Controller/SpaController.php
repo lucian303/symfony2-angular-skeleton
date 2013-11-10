@@ -56,6 +56,14 @@ class SpaController extends Controller
 	}
 
 	/**
+	 * @Route("/api/v1/login_success", name="_login_success")
+	 */
+	public function loginSuccessCheckAction()
+	{
+		return JsonResponse::create(array('loggedIn' => true));
+	}
+
+	/**
 	 * @Route("/logout", name="_logout")
 	 */
 	public function logoutAction()

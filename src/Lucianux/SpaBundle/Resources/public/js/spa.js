@@ -15,20 +15,17 @@ function LoginController($scope, $http) {
 	$scope.login = function($event) {
 		var loginForm = $($event.target);
 
-		console.log(loginForm.attr('action'));
-
 		$event.preventDefault();
 
 		$http({
 		    method: 'POST',
 		    url: loginForm.attr('action'),
 		    data: getInputs(loginForm),
-		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		    headers: {'Content-Type': 'application/json'}
 		}).success(function (data, status, headers, config) {
-			console.log(data);
+			console.log(status, headers, config);
 			alert('yes!!!');
 		}).error(function(data, status, headers, config) {
-			console.log(data);
 			alert('error');
         });
 	};
