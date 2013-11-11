@@ -34,6 +34,17 @@ class SpaController extends Controller
 	/**
 	 * Login page
 	 *
+	 * @Route("/api/v1/login_success", name="_login_success")
+	 * @Method("GET")
+	 */
+	public function loginSuccessAction()
+	{
+		return new Response();
+	}
+
+	/**
+	 * Login page
+	 *
 	 * @Route("/login", name="_login")
 	 * @Method("GET")
 	 */

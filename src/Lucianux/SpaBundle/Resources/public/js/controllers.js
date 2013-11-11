@@ -11,14 +11,20 @@ myloControllers.controller('IndexController', ['$scope',
 	}
 ]);
 
-myloControllers.controller('LoginController', ['$scope',
-	function($scope) {
+myloControllers.controller('LoginController', ['$scope', '$http',
+	function($scope, $http) {
+		this.username = '';
+		this.password = '';
+		this.url = '/api/v1/login_check';
+
 		/**
 		 * Grabs a form's inputs into an object
 		 *
 		 * @private
 		 * @param el formInput
-		 * @returns string output
+		 * @return {{}} output
+		 *
+		 * @todo make this into a service, or better, yet use angular forms
 		 */
 		var getInputs = function(el) {
 			var inputs = {};
@@ -34,9 +40,12 @@ myloControllers.controller('LoginController', ['$scope',
 		/**
 		 * Login action, triggered by a form submit event (usually)
 		 *
-		 * @param $event
+		 * @param $event Form submittal event
+		 *
+		 * @todo refactor out jquery, use $http
 		 */
-		$scope.login = function($event) {
+		this.loginUser = function loginUser($event) {
+			console.log(this.username, this.password);
 			var loginForm = $($event.target);
 
 			$event.preventDefault();

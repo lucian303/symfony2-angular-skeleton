@@ -1,25 +1,25 @@
-<div ng-controller="LoginController">
+<div ng-controller="LoginController as login">
 	<h1 class="title">Login</h1>
 
 	<p>
 		Choose between default users 1 - 5: <em>user1/userpass1, user2/userpass2, etc.</em>
 	</p>
 
-	<form id="login-form" action="/api/v1/login_check" method="post" ng-submit="login($event)">
+	<form id="login-form" action="{{ login.url }}" method="post" ng-submit="login.loginUser($event)">
 		<div>
 			<label for="username">Username</label>
-			<input type="text" id="username" name="_username"/>
+			<input type="text" id="username" name="_username" required ng-model="login.username" />
 		</div>
 
 		<div>
 			<label for="password">Password</label>
-			<input type="password" id="password" name="_password"/>
+			<input type="password" id="password" name="_password" required ng-model="login.password" />
 		</div>
 
 		<button type="submit">
            <span>
                <span>
-                   <span>Login</span>
+                   <span>Login: {{ login.username }}</span>
                </span>
            </span>
 		</button>
