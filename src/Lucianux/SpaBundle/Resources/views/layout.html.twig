@@ -32,9 +32,20 @@
 <body>
 
 <div class="view-container">
-	<div class="view-header">
-		{% block view_header %}{% endblock %}
-	</div>
+	{% block view_header %}
+		<div class="container">
+			<div class="masthead">
+				<h3 class="text-muted">Hotel Mylo</h3>
+				<ul class="nav nav-justified">
+					<li class="active"><a href="#/">Home</a></li>
+					<li><a href="#/login">Login</a></li>
+					<li><a href="#/services">Services</a></li>
+					<li><a href="#/downloads">Downloads</a></li>
+					<li><a href="#/about">About</a></li>
+					<li><a href="#/contact">Contact</a></li>
+				</ul>
+			</div>
+	{% endblock %}
 
 	{# Div for SPA app #}
 	<div ng-view class="view-frame"></div>
@@ -51,9 +62,13 @@
 		{% endblock %}
 	</div>
 
-	<div class="view-footer">
-		{% block view_footer %}{% endblock %}
-	</div>
+	{% block view_footer %}
+			<!-- Site footer -->
+			<div class="footer">
+				<p>&copy; Hotel Mylo 2013</p>
+			</div>
+		</div> <!-- /container -->
+	{% endblock %}
 </div>
 
 </body>
