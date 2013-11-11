@@ -1,15 +1,9 @@
 'use strict';
 
-/* Controllers */
-
 /* global angular */
-var myloControllers = angular.module('myloControllers', []);
+var myloSecurityControllers = angular.module('myloSecurityControllers', []);
 
-myloControllers.controller('IndexController', ['$scope',
-	function($scope) {	}
-]);
-
-myloControllers.controller('LoginController', ['$http',
+myloSecurityControllers.controller('LoginController', ['$http',
 	function($http) {
 		this.username = '';
 		this.password = '';

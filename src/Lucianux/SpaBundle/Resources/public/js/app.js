@@ -3,7 +3,7 @@
 /* App Module */
 
 /* global angular */
-var myloApp = angular.module('myloApp', ['ngRoute', 'myloControllers']);
+var myloApp = angular.module('myloApp', ['ngRoute', 'myloIndexControllers', 'myloSecurityControllers']);
 
 myloApp.config(['$routeProvider',
 	function($routeProvider) {
