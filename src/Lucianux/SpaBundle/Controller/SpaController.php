@@ -39,7 +39,7 @@ class SpaController extends Controller
 	 */
 	public function loginAction()
 	{
-		return array();
+		return new Response();
 	}
 
 	/**
