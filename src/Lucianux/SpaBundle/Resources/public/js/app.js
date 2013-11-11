@@ -9,11 +9,11 @@ myloApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
 			when('/', {
-				templateUrl: 'bundles/lucianuxspa/templates/index.html',
+				templateUrl: 'bundles/lucianuxspa/templates/modules/index/index.html',
 				controller: 'IndexController'
 			}).
 			when('/login', {
-				templateUrl: 'bundles/lucianuxspa/templates/login.html',
+				templateUrl: 'bundles/lucianuxspa/templates/modules/security/login.html',
 				controller: 'LoginController'
 			}).
 			otherwise({
