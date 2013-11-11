@@ -23,7 +23,7 @@ myloControllers.controller('LoginController', ['$scope',
 		var getInputs = function(el) {
 			var inputs = {};
 
-			$.each(el.find('input'), function(i, item) {
+			jQuery.each(el.find('input'), function(i, item) {
 				var $item = $(item);
 				inputs[$item.attr('name')] = $item.val();
 			});
@@ -41,7 +41,7 @@ myloControllers.controller('LoginController', ['$scope',
 
 			$event.preventDefault();
 
-			$.ajax({
+			jQuery.ajax({
 				url: loginForm.attr('action'),
 				type: 'POST',
 				dataType: 'json',
@@ -58,4 +58,3 @@ myloControllers.controller('LoginController', ['$scope',
 		};
 	}
 ]);
-
