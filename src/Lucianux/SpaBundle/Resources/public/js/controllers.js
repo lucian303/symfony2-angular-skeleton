@@ -46,12 +46,12 @@ myloControllers.controller('LoginController', ['$scope',
 				type: 'POST',
 				dataType: 'json',
 				data: getInputs(loginForm),
-				success: function(data) {
-				   if (data.has_error) {
-				       alert('Error: ' + data.error);
+				success: function($data) {
+				   if ($data.has_error) {
+				       alert('Error: ' + $data.error);
 				   }
 				   else {
-					   alert('Welcome ' + data.username);
+					   alert('Welcome ' + $data.username);
 				   }
 				}
 			});
