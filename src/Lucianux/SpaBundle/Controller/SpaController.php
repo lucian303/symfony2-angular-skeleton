@@ -3,6 +3,7 @@
 namespace Lucianux\SpaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -39,7 +40,10 @@ class SpaController extends Controller
 	 */
 	public function loginSuccessAction()
 	{
-		return new Response();
+		/** @var $user \Symfony\Component\Security\Core\User\UserInterface */
+		$user = $this->container->get('security.context')->getToken()->getUser();
+
+		return new JsonResponse(array('message' => 'Login ok', 'content' => array('username' => $user->getUsername()), 'errors' => array()));
 	}
 
 	/**

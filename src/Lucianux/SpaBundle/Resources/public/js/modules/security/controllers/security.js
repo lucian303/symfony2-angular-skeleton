@@ -8,6 +8,7 @@ myloSecurityControllers.controller('LoginController', ['$http',
 		this.username = '';
 		this.password = '';
 		this.url = '/api/v1/login_check';
+		this.apikey = '';
 
 		/**
 		 * @param $event Form submittal event
@@ -21,20 +22,20 @@ myloSecurityControllers.controller('LoginController', ['$http',
 
 			$event.preventDefault();
 
-			jQuery.ajax({
-				url: this.url,
-				type: 'POST',
-				dataType: 'json',
-				data: loginData,
-				success: function(data) {
-				   if (data.has_error) {
-				       alert('Error: ' + data.error);
-				   }
-				   else {
-					   alert('Welcome ' + data.username);
-				   }
-				}
-			});
+			// This is not ideal, as we still get redirected (we don't with jQuery)
+			// The request is different for some reason. We can use this to our advantage,
+			// however and return full JSON data back with a key to use for subequent requests
+			$http({
+			    method: 'POST',
+			    url: this.url,
+			    data: $.param(loginData),
+			    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+			}).success(function (data, status, headers, config) {
+				console.log(data.content.username);
+				alert('Welcome ' + data.content.username);
+			}).error(function(data, status, headers, config) {
+				alert('Could not log you in.');
+	        });
 		};
 	}
 ]);
