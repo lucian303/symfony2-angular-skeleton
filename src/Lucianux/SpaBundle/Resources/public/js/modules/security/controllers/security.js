@@ -30,10 +30,9 @@ myloSecurityControllers.controller('LoginController', ['$http',
 			    url: this.url,
 			    data: $.param(loginData),
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-			}).success(function (data, status, headers, config) {
-				console.log(data.content.username);
+			}).success(function (data) {
 				alert('Welcome ' + data.content.username);
-			}).error(function(data, status, headers, config) {
+			}).error(function(data) {
 				alert('Could not log you in.');
 	        });
 		};
