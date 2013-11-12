@@ -28,7 +28,7 @@ myloSecurityControllers.controller('LoginController', ['$http',
 			$http({
 			    method: 'POST',
 			    url: this.url,
-			    data: $.param(loginData),
+			    data: jQuery.param(loginData),
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
 			}).success(function (data) {
 				alert('Welcome ' + data.content.username);
