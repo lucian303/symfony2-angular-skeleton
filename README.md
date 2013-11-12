@@ -1,6 +1,6 @@
 ## symfony2-skeleton
 
-### A Symfony 2 skeleton application with AJAX login for single (or multiple) page apps.
+### A Symfony 2 REST API serving an angular.js app.
 
 ### Usage
 
@@ -16,4 +16,4 @@ Lucian Hontau (lucian303)
 
 Copyright 2013 Lucian Hontau
 
-Other packages including Symfony have their own copyrights. See respective files.
+Other packages including Symfony, jQuery, twitter bootstrap and angular.js have their own copyrights. See respective files.
